@@ -25,15 +25,16 @@ export class AuthService {
   }
 
   logout(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
+      }),
+      body: { refresh_token: localStorage.getItem('refresh_token')}
+    };
     return this.httpClient.delete( this.apiUrl + '/access-tokens', httpOptions);
   }
 }
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'X-Access-Token': localStorage.getItem('jwt')
-  }),
-  body: { refresh_token: localStorage.getItem('refresh_token')}
-};
+
 

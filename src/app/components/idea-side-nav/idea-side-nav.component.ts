@@ -25,7 +25,7 @@ export class IdeaSideNavComponent implements OnInit {
       .subscribe(data => {
           console.log('Logging out');
         },
-        err => console.error(err),
+        err => this.cleanupSession(),
         () =>  this.cleanupSession());
   }
 
