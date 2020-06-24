@@ -1,0 +1,45 @@
+.mat-sidenav, .mat-card {
+  background: #00A843;
+  box-shadow: none;
+  width: 199px;
+}
+mat-card-content.mat-card-content {
+  color: rgba(255,255,255,1);
+  font-size: 16px;
+  font-family: AppleSystemUIFont;
+  text-align: center;
+  margin-top:12px;
+}
+
+img.mat-card-image {
+  border-radius: 50%;
+}
+
+.mat-card-image {
+  width: 68px;
+  height: auto;
+  margin: 0;
+}
+.ideasline{
+  border: 1px solid rgba(255,255,255,0.20);
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.top-card{
+  padding-top: 37px;
+  background: #00A843;
+  box-shadow: none;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+}
+
+.idealine{
+  border: 1px solid rgba(255,255,255,0.20);
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+
+}

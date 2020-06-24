@@ -1,0 +1,98 @@
+
+<mat-card>
+  <mat-card-title-group>
+    <mat-card-title class="text-xl push-none">My Ideas</mat-card-title>
+      <img mat-card-sm-image (click)="addRow()" src="assets/btn_addanidea.png">
+  </mat-card-title-group>
+  <div class="ideasline"></div>
+</mat-card>
+
+
+
+<form [formGroup]="userTable">
+  <!--
+  <div class="action-container">
+    <button mat-raised-button type="submit" (click)="addRow()">Add row</button>
+  </div>
+-->
+  <table class="table table-border" [ngClass]="{'table-dark': mode}">
+    <thead class="text-nowrap">
+    <th> <span class="ui-column-resizer" dragableColumn> </span></th>
+    <th class="header-spacing">Impact</th>
+    <th class="header-spacing">Ease</th>
+    <th class="header-spacing">Confidence</th>
+    <th class="header-spacing">Avg.</th>
+    <th></th>
+    </thead>
+
+    <tbody>
+    <ng-container class="table-rows" formArrayName="tableRows" *ngFor="let group of getFormControls.controls ; let i=index">
+      <tr *ngIf="group.get('isEditable').value" [formGroupName]="i">
+        <td class="content-row content-margin align-centre">
+          <mat-form-field class="content-field">
+            <input matInput type="text" formControlName="content" class="content-field">
+          </mat-form-field>
+        </td>
+        <td class="number-row header-spacing">
+          <input matInput type="text" formControlName="impact" class="number-field spinner" type="number" min="1" max="10">
+          <!--
+          <mat-form-field class="number-field">
+
+          </mat-form-field>
+          -->
+        </td>
+        <td class="number-row header-spacing">
+          <input matInput type="text" formControlName="ease" class="number-field spinner" type="number" min="1" max="10">
+          <!--
+          <mat-form-field class="number-field">
+
+          </mat-form-field>-->
+        </td>
+        <td class="number-row header-spacing">
+          <input matInput type="text" formControlName="confidence" class="number-field spinner" type="number" min="1" max="10">
+          <!--
+          <mat-form-field class="number-field">
+            <input matInput type="text" formControlName="confidence" class="number-field spinner" type="number" min="1" max="10">
+          </mat-form-field>-->
+        </td>
+        <td class="number-row header-spacing">
+          <input matInput type="text" formControlName="average_score" value="{{ calculateAvg(group) }}" class="number-field" >
+          <!--
+          <mat-form-field class="number-field">
+
+          </mat-form-field>-->
+
+        </td>
+        <td>
+
+          <mat-icon class="done" (click)="doneRow(group)">done</mat-icon>
+        </td>
+      </tr>
+      <tr *ngIf="!group.get('isEditable').value" >
+
+        <td class="content-row content-margin">
+          {{group.get('content').value}}
+        </td>
+
+        <td class="header-spacing">
+          {{group.get('impact').value}}
+        </td>
+        <td class="header-spacing">
+          {{group.get('ease').value}}
+        </td>
+        <td class="header-spacing">
+          {{group.get('confidence').value}}
+        </td>
+        <td class="header-spacing">
+          {{group.get('average_score').value}}
+        </td>
+        <td class="header-spacing">
+          <mat-icon class="edit" (click)="editRow(group)">edit</mat-icon>
+          <mat-icon class="delete" (click)="deleteRow(i,group)">delete_forever</mat-icon>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+
+</form>

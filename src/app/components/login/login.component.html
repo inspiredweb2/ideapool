@@ -1,0 +1,30 @@
+
+
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title class="header-font">Log in</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width field-spacing">
+          <input name="username" matInput placeholder="Email" [(ngModel)]="loginRequest$.username">
+         </mat-form-field>
+
+        <mat-form-field class="example-full-width textbox-spacing">
+          <input name="password" matInput placeholder="Password" [(ngModel)]="loginRequest$.password">
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="field-spacing" (click)="login()" >LOG IN</button>
+      <label class="textlabel textlabel-color">Don't have an account? </label>
+
+      <a [routerLink]="['/register']" class="textlabel link-color">
+        Create an account
+      </a>
+    </form>
+  </mat-card>
+
+</div>
