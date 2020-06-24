@@ -19,8 +19,6 @@ import { IdeaSideNavComponent } from './components/idea-side-nav/idea-side-nav.c
 import { GravatarDirective } from './directives/gravatar.directive';
 import {MatCardModule} from '@angular/material/card';
 
-export const isMock = environment.mock;
-
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule,
