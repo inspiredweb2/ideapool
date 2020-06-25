@@ -99,7 +99,7 @@ export class IdeasComponent implements OnInit {
             console.log('added new idea with id ' + this.newIdeaID);
           },
           err => console.error(err),
-          () => group.get('id').setValue(this.newIdeaID));
+          () => this.updateView(group));
     }
     else {
       console.log('updating idea ' + this.selectedIdea);
@@ -109,8 +109,13 @@ export class IdeasComponent implements OnInit {
             console.log('Idea updated, content ' + this.updatedIdea.content);
           },
           err => console.error(err),
-          () => group.get('average_score').setValue(this.updatedIdea.average_score));
+          () => group.get('average_score').setValue(parseFloat(this.updatedIdea.average_score.toFixed(2))));
     }
+  }
+
+  updateView(group: FormGroup){
+    group.get('id').setValue(this.newIdeaID);
+    group.get('average_score').setValue(this.calculateAvg(group));
   }
 
   saveUserDetails() {
@@ -126,10 +131,10 @@ export class IdeasComponent implements OnInit {
     return this.fb.group({
       id: [newIdea.id, Validators.required],
       content: [newIdea.content, Validators.required],
-      impact: [newIdea.impact, [Validators.email, Validators.required]],
+      impact: [newIdea.impact, [Validators.required]],
       ease: [newIdea.ease, [Validators.required]],
-      confidence: [newIdea.confidence],
-      average_score: [newIdea.average_score, [Validators.required, Validators.maxLength(10)]],
+      confidence: [newIdea.confidence, [Validators.required]],
+      average_score: [newIdea.average_score],
       isEditable: [editable]
     });
   }
