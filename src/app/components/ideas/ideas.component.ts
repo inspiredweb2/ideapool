@@ -42,6 +42,10 @@ export class IdeasComponent implements OnInit {
     this.control = this.userTable.get('tableRows') as FormArray;
   }
 
+  noIdeas(): boolean{
+    return (this.control.length === 0);
+  }
+
   calculateAvg(group: FormGroup){
       this.selectedIdea = group.getRawValue();
       if ((this.selectedIdea.impact != null) && (this.selectedIdea.ease != null) && (this.selectedIdea.confidence != null))

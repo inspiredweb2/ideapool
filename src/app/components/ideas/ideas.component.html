@@ -7,14 +7,20 @@
   <div class="ideasline"></div>
 </mat-card>
 
+<div *ngIf="noIdeas()"><mat-card class="bulb-card">
+  <mat-card-header>
+
+  </mat-card-header>
+  <img bulb-img src="assets/bulb.png" alt="bulb">
+  <mat-card-content bulb-text>
+    Got ideas?
+  </mat-card-content>
+
+</mat-card></div>
 
 
-<form [formGroup]="userTable">
-  <!--
-  <div class="action-container">
-    <button mat-raised-button type="submit" (click)="addRow()">Add row</button>
-  </div>
--->
+<form [formGroup]="userTable" *ngIf="!noIdeas()">
+
   <table class="table table-border" [ngClass]="{'table-dark': mode}">
     <thead class="text-nowrap">
     <th> <span class="ui-column-resizer" dragableColumn> </span></th>

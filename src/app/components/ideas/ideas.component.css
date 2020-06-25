@@ -10,7 +10,29 @@ header {
   justify-content: space-between;
   margin-bottom: 50px;
 }
+.bulb-img{
+  width: 64px;
+  height: auto;
+}
 
+.bulb-card{
+  text-align: center;
+}
+
+mat-card-content.mat-card-content{
+  font-family: SFNSDisplay;
+  font-size: 20px;
+  color: #2A3842;
+}
+.ideasline{
+  height: 3px;
+  width: 91%;
+  color: rgba(42,56,66,0.2);
+  background: rgba(42,56,66,0.2);
+  margin-left: 10%;
+  margin-top: 21px;
+  margin-left: 5%;
+}
 
 mat-icon.mat-icon.notranslate.done.material-icons.mat-icon-no-color {
   padding-left: 33px;
